@@ -61,10 +61,10 @@ def chart():
 
     language=request.args.get('language')
     if language == "en-US":  
-        for t in range(len(minpasttemperature):
+        for t in range(len(minpasttemperature)):
             minpasttemperature[t] = (minpasttemperature[t] - 32)*(5/9)
 
-        for t in range(len(maxpasttemperature):
+        for t in range(len(maxpasttemperature)):
             maxpasttemperature[t] = (maxpasttemperature[t] - 32)*(5/9)
 
             
