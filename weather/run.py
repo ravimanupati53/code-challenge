@@ -40,5 +40,5 @@ while(1==1):
 			        print "Row inserted for "+city
 			        insertFlg=True
 		        except Exception as e:
-              print "Something went wrong"
+                                print "Something went wrong"
 			        print e
