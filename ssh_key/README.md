@@ -6,5 +6,5 @@ The vars file in environment_vars directory contains the `user id` and the `ssh-
 
 The host directory contains the list of destination IP addresses/hostnames where the `SSH-KEY` need to copy.
 
-## ssh_key.yml file executes the playbook in copying the key to other nodes.
+***ssh_key.yml*** file executes the playbook in copying the key to other nodes.
 
