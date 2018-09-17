@@ -29,13 +29,13 @@ To deploy the application in Google Cloud Platform we need to have some packages
 
 * Python: We need to make sure that the Python development, including developing Python applications that run on Google Cloud Platform (GCP).
 
-* pip: pip is a package management system used to install and manage software packages written in Python.
+* **pip:** pip is a package management system used to install and manage software packages written in Python.
 
-* Flask: Flask is a lightweight WSGI web application framework.
+* **Flask:** Flask is a lightweight WSGI web application framework.
 
-* Flask-SQLAlchemy: Flask-SQLAlchemy is an extension for Flask that adds support for SQLAlchemy to your application.
+* **Flask-SQLAlchemy:** Flask-SQLAlchemy is an extension for Flask that adds support for SQLAlchemy to your application.
 
-* Requests: Requests is the only Non-GMO HTTP library for Python.
+* **Requests:** Requests is the only Non-GMO HTTP library for Python.
 
-* Sqlite3: sqlite3 drivers for the 'db' library.
+* **Sqlite3:** sqlite3 drivers for the 'db' library.
 
