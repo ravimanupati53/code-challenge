@@ -27,7 +27,7 @@ Used Google Cloud Platform to deploy the application on VM instance.
 
 To deploy the application in Google Cloud Platform we need to have some packages installed in the instance. Here are the list of packages we need to install.
 
-* Python: We need to make sure that the Python development, including developing Python applications that run on Google Cloud Platform (GCP).
+* **Python:** We need to make sure that the Python development, including developing Python applications that run on Google Cloud Platform (GCP).
 
 * **pip:** pip is a package management system used to install and manage software packages written in Python.
 
