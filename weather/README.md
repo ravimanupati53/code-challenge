@@ -78,10 +78,18 @@ To deploy the application in Google Cloud Platform follow the below steps.
 
 ![alt text](https://github.com/ravimanupati53/code-challenge/blob/master/weather/images/flask.png)
 
+* CLick on the URL or copy the URL specified in the shell and direct to the web browser.
+
 ![alt text](https://github.com/ravimanupati53/code-challenge/blob/master/weather/images/output.png)
+
+* Type the name of the city and click on `Add City`.
 
 ![alt text](https://github.com/ravimanupati53/code-challenge/blob/master/weather/images/city.png)
 
+* You can add any number of cities and it will automatically stored in the database.
+
 ![alt text](https://github.com/ravimanupati53/code-challenge/blob/master/weather/images/cities.png)
+
+* You can access the Database by executing the `sudo sqlite3` command. You can find the list of tables by running `.tables` command and execute the `.open FILENAME` command to access the database.
 
 ![alt text](https://github.com/ravimanupati53/code-challenge/blob/master/weather/images/database.png)
