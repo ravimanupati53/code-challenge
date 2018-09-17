@@ -59,3 +59,19 @@ Sqlite3 is used as the database.
           app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///weather.db'
 
 
+
+### Execution:
+
+To deploy the application in Google Cloud Platform follow the below steps.
+
+* Clone the GIT repository to the instance and direct to the directory.
+* Install all the Prerequisites needed for the application.
+* To run the application you can either use the `flask` command by exporting the FLASK_APP environment variable.
+
+                    export FLASK_APP=app.py
+                    flask run
+          * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+          127.0.0.1 - - [17/Sep/2018 01:51:12] "GET /?authuser=4 HTTP/1.1" 200 -
+ 
+
+
