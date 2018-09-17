@@ -74,4 +74,14 @@ To deploy the application in Google Cloud Platform follow the below steps.
           127.0.0.1 - - [17/Sep/2018 01:51:12] "GET /?authuser=4 HTTP/1.1" 200 -
  
 
+* The application is running on http://127.0.0.1:5000/
 
+![alt text](https://github.com/ravimanupati53/code-challenge/blob/master/weather/images/flask.png)
+
+![alt text](https://github.com/ravimanupati53/code-challenge/blob/master/weather/images/output.png)
+
+![alt text](https://github.com/ravimanupati53/code-challenge/blob/master/weather/images/city.png)
+
+![alt text](https://github.com/ravimanupati53/code-challenge/blob/master/weather/images/cities.png)
+
+![alt text](https://github.com/ravimanupati53/code-challenge/blob/master/weather/images/database.png)
