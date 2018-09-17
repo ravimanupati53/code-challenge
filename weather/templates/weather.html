@@ -1,332 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Weather</title>
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>What's the weather</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
 </head>
-<body onload= "myFunction()">
 
-<nav class="navbar navbar-default">
-    <div class="container">
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <div id= "content">
-                <center><h1>Weather Report</h1></center>
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    What's the weather
+                </h1>
             </div>
-    </div>
-  </div>
-</nav>
-
-<div class = "ctx">
-  <div class = "row">
-    <div class= "col-xs-6" style= "padding-left: 50px;">
-      <h2>Humidity Today</h2><canvas id="chart" width="700" height="400"></canvas> 
-    </div>
-    <div class = "col-xs-6">
-      <h2>Temperature Today</h2><canvas id="chart1" width="700" height="400"></canvas>
-    </div>
-  </div>
-  <div class = "row" style= "padding-left: 50px;">
-    <div class= "col-xs-6">
-      <h2>Pressure Today</h2><canvas id="chart2" width="700" height="400"></canvas>
-    </div>
-    <div class= "col-xs-6">
-      <h2>Windspeed Today</h2><canvas id="chart3" width="700" height="400"></canvas>
-    </div>
-
-    <div class = "row" style= "padding-left: 50px;">
-    <div class= "col-xs-6">
-      <h2>Temperature last week</h2><canvas id="chart5" width="700" height="400"></canvas>
-    </div>
-    <div class= "col-xs-6">
-      <h2>Pressure last week</h2><canvas id="chart6" width="700" height="400"></canvas>
-    </div>
-  </div>
-  <div class = "row" style= "padding-left: 50px;">
-    <div class= "col-xs-6">
-      <h2>Windspeed last week</h2><canvas id="chart7" width="700" height="400"></canvas>
-    </div>
-    <div class= "col-xs-6">
-      <h2>Humidity last week</h2><canvas id="chart8" width="700" height="400"></canvas>
-    </div>
-  </div>
-</div>
-</div>
-<script>
-function myFunction(){
-   // bar chart data
-   var barData = {
-   labels : [{% for item in todayLabel %}
-                  "{{item}}",
-              {% endfor %}],
-   datasets : [
-      { label: 'todayHumidity',
-        fillColor: "rgba(151,187,205,0.2)",
-        strokeColor: "rgba(151,187,205,1)",
-        pointColor: "rgba(151,187,205,1)",
-        data : [{% for item in todayHumidity %}
-                      {{item}},
-                    {% endfor %}]
-      }]
-   }
-   // get bar chart canvas
-   var mychart = document.getElementById("chart").getContext("2d");
-   steps = 10
-   max = 100
-   // draw bar chart
-   new Chart(mychart).Line(barData, {
-        scaleOverride: true,
-        scaleSteps: steps,
-        scaleStepWidth: Math.ceil(max / steps),
-        scaleStartValue: 0,
-        scaleShowVerticalLines: false,
-        scaleShowGridLines : true,
-        barShowStroke : true,
-        scaleShowLabels: true
-   });
-   var barData1 = {
-   labels : [{% for item in todayLabel %}
-                  "{{item}}",
-              {% endfor %}],
-   datasets : [
-      { labels: 'todayTemperature',
-        fillColor: "rgba(151,187,205,0.2)",
-        strokeColor: "rgba(151,187,205,1)",
-        pointColor: "rgba(151,187,205,1)",
-        data : [{% for item in todayTemperature %}
-                      {{item}},
-                    {% endfor %}]
-      }]
-   }
-   // get bar chart canvas
-   var mychart = document.getElementById("chart1").getContext("2d");
-   steps = 10
-   max = 100
-   // draw bar chart
-   new Chart(mychart).Line(barData1, {
-        scaleOverride: true,
-        scaleSteps: steps,
-        scaleStepWidth: Math.ceil(max / steps),
-        scaleStartValue: 0,
-        scaleShowVerticalLines: false,
-        scaleShowGridLines : true,
-        barShowStroke : true,
-        scaleShowLabels: true
-   });
-var barData2 = {
-   labels : [{% for item in todayLabel %}
-                  "{{item}}",
-              {% endfor %}],
-   datasets : [
-      { labels: 'todayPressure',
-        fillColor: "rgba(151,187,205,0.2)",
-        strokeColor: "rgba(151,187,205,1)",
-        pointColor: "rgba(151,187,205,1)",
-        data : [{% for item in todayPressure %}
-                      {{item}},
-                    {% endfor %}]
-      }]
-   }
-   // get bar chart canvas
-   var mychart = document.getElementById("chart2").getContext("2d");
-   steps = 500
-   max = 1500
-   // draw bar chart
-   new Chart(mychart).Line(barData2, {
-        scaleOverride: true,
-        scaleSteps: 200,
-        scaleStepWidth: Math.ceil(max / steps),
-        scaleStartValue: 500,
-        scaleShowVerticalLines: false,
-        scaleShowGridLines : true,
-        barShowStroke : true,
-        scaleShowLabels: false
-   });
-var barData3 = {
-   labels : [{% for item in todayLabel %}
-                  "{{item}}",
-              {% endfor %}],
-   datasets : [
-      { labels: 'todayWindspeed',
-        fillColor: "rgba(151,187,205,0.2)",
-        strokeColor: "rgba(151,187,205,1)",
-        pointColor: "rgba(151,187,205,1)",
-        data : [{% for item in todayWindspeed %}
-                      {{item}},
-                    {% endfor %}]
-      }]
-   }
-   // get bar chart canvas
-   var mychart = document.getElementById("chart3").getContext("2d");
-   steps = 10
-   max = 100
-   // draw bar chart
-   new Chart(mychart).Line(barData3, {
-        scaleOverride: true,
-        scaleSteps: steps,
-        scaleStepWidth: Math.ceil(max / steps),
-        scaleStartValue: 0,
-        scaleShowVerticalLines: false,
-        scaleShowGridLines : true,
-        barShowStroke : true,
-        scaleShowLabels: true
-   });
-var barData5 = {
-   labels : [{% for item in pastLabel %}
-                  "{{item}}",
-              {% endfor %}],
-   datasets : [      
-      { label: 'minpastTemperature',
-        fillColor: "rgba(151,187,205,0.2)",
-        strokeColor: "rgba(151,187,205,1)",
-        pointColor: "rgba(151,187,205,1)",
-        data : [{% for item in minpastTemperature %}
-                      {{item}},
-                    {% endfor %}]
-      }, { 
-        label: 'maxpastTemperature',
-        fillColor: "rgba(151,187,205,0.2)",
-        strokeColor: "rgba(151,187,205,1)",
-        pointColor: "rgba(151,187,205,1)",
-        data : [{% for item in maxpastTemperature %}
-                      {{item}},
-                    {% endfor %}]
-      }]
-    }
-      
-   // get bar chart canvas
-   var mychart = document.getElementById("chart5").getContext("2d");
-   steps = 10
-   max = 100
-   // draw bar chart
-   new Chart(mychart).Line(barData5, {
-        scaleOverride: true,
-        scaleSteps: steps,
-        scaleStepWidth: Math.ceil(max / steps),
-        scaleStartValue: 0,
-        scaleShowVerticalLines: false,
-        scaleShowGridLines : true,
-        barShowStroke : true,
-        scaleShowLabels: true
-   });
-var barData6 = {
-   labels : [{% for item in pastLabel %}
-                  "{{item}}",
-              {% endfor %}],
-   datasets : [      
-      { label: 'minpastPressure',
-        fillColor: "rgba(151,187,205,0.2)",
-        strokeColor: "rgba(151,187,205,1)",
-        pointColor: "rgba(151,187,205,1)",
-        data : [{% for item in minpastPressure %}
-                      {{item}},
-                    {% endfor %}]
-      }, { 
-        label: 'maxpastPressure',
-        fillColor: "rgba(151,187,205,0.2)",
-        strokeColor: "rgba(151,187,205,1)",
-        pointColor: "rgba(151,187,205,1)",
-        data : [{% for item in maxpastPressure%}
-                      {{item}},
-                    {% endfor %}]
-      }]
-    }
-      
-   // get bar chart canvas
-   var mychart = document.getElementById("chart6").getContext("2d");
-   steps = 500
-   max = 1500
-   // draw bar chart
-   new Chart(mychart).Line(barData6, {
-        scaleOverride: true,
-        scaleSteps: 200,
-        scaleStepWidth: Math.ceil(max / steps),
-        scaleStartValue: 500,
-        scaleShowVerticalLines: false,
-        scaleShowGridLines : true,
-        barShowStroke : false,
-        scaleShowLabels: false
-   });
-   var barData7 = {
-   labels : [{% for item in pastLabel %}
-                  "{{item}}",
-              {% endfor %}],
-   datasets : [      
-      { label: 'minpastHumidy',
-        fillColor: "rgba(151,187,205,0.2)",
-        strokeColor: "rgba(151,187,205,1)",
-        pointColor: "rgba(151,187,205,1)",
-        data : [{% for item in minpastHumidy %}
-                      {{item}},
-                    {% endfor %}]
-      }, { 
-        label: 'maxpastHumidity',
-        fillColor: "rgba(151,187,205,0.2)",
-        strokeColor: "rgba(151,187,205,1)",
-        pointColor: "rgba(151,187,205,1)",
-        data : [{% for item in maxpastHumidity %}
-                      {{item}},
-                    {% endfor %}]
-      }]
-    }
-      
-   // get bar chart canvas
-   var mychart = document.getElementById("chart7").getContext("2d");
-   steps = 10
-   max = 100
-   // draw bar chart
-   new Chart(mychart).Line(barData7, {
-        scaleOverride: true,
-        scaleSteps: steps,
-        scaleStepWidth: Math.ceil(max / steps),
-        scaleStartValue: 0,
-        scaleShowVerticalLines: false,
-        scaleShowGridLines : true,
-        barShowStroke : true,
-        scaleShowLabels: true
-   });
-   var barData8 = {
-   labels : [{% for item in pastLabel %}
-                  "{{item}}",
-              {% endfor %}],
-   datasets : [      
-      { label: 'minpastWindspeed',
-        fillColor: "rgba(151,187,205,0.2)",
-        strokeColor: "rgba(151,187,205,1)",
-        pointColor: "rgba(151,187,205,1)",
-        data : [{% for item in minpastWindspeed %}
-                      {{item}},
-                    {% endfor %}]
-      }, { 
-        label: 'maxpastWindspeed',
-        fillColor: "rgba(151,187,205,0.2)",
-        strokeColor: "rgba(151,187,205,1)",
-        pointColor: "rgba(151,187,205,1)",
-        data : [{% for item in maxpastWindspeed %}
-                      {{item}},
-                    {% endfor %}]
-      }]
-    }
-      
-   // get bar chart canvas
-   var mychart = document.getElementById("chart8").getContext("2d");
-   steps = 10
-   max = 100
-   // draw bar chart
-   new Chart(mychart).Line(barData8, {
-        scaleOverride: true,
-        scaleSteps: steps,
-        scaleStepWidth: Math.ceil(max / steps),
-        scaleStartValue: 0,
-        scaleShowVerticalLines: false,
-        scaleShowGridLines : true,
-        barShowStroke : true,
-        scaleShowLabels: true
-   });
- }
-</script>
-<script src='static/Chart.min.js'></script>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <form method="POST">
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <input class="input" name="city" type="text" placeholder="City Name">
+                            </div>
+                            <div class="control">
+                                <button class="button is-info">
+                                    Add City
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    {% for weather in weather_data %}
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                <figure class="image is-50x50">
+                                    <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Image">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <span class="title">{{ weather.city }}</span>
+                                        <br>
+                                        <span class="subtitle">{{ weather.temperature }}° F</span>
+                                        <br> {{ weather.description }}
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    </footer>
 </body>
+
 </html>
