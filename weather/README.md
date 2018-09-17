@@ -82,7 +82,7 @@ To deploy the application in Google Cloud Platform follow the below steps.
 
 ![alt text](https://github.com/ravimanupati53/code-challenge/blob/master/weather/images/output.png)
 
-* Type the name of the city and click on `Add City`.
+* Enter the name of the city and click on `Add City`.
 
 ![alt text](https://github.com/ravimanupati53/code-challenge/blob/master/weather/images/city.png)
 
