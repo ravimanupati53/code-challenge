@@ -42,7 +42,7 @@ To deploy the application in Google Cloud Platform we need to have some packages
 
 ### MicroServices:
 
-***app.py:** This microservice extracts the data from the API call and displays the output the html file. It imports Flask, Flask_sqlalchemy, Request, Templates to call the API and displays the weather. It saves the city in the database in the form of table.
+***app.py:*** This microservice extracts the data from the API call and displays the output the html file. It imports Flask, Flask_sqlalchemy, Request, Templates to call the API and displays the weather. It saves the city in the database in the form of table.
 
 ***API:*** The API calls the value from the URL and reports the weather. `url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=de4a7c15191093d3c8c228237f5ea93a'` where appid key is generated key when you signup for OpenWheatherMap.
 
